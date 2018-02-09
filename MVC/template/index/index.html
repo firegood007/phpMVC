@@ -1,0 +1,53 @@
+{include file="index/header.html"}
+<script type="text/javascript" src="{JS_PATH}/index.js"></script> 
+<link rel="stylesheet" type="text/css" href="{CSS_PATH}/index.css"/>   
+<div class="container w">
+	<div class="row">
+		<div class="lunbo">
+		</div>
+	</div>
+</div> 
+<div class="container">
+	<div class="row">
+		    <div class="col-sm-8 main-left">
+		    	<h3 class="bt">最新文章</h3>
+		     <ul>
+			    {foreach $result as $v}
+			    <li class="li">
+			        <h1>
+			            <a href="index.php?m=index&f=show&a=show&id={$v['sid']}">{$v["stitle"]}</a>
+			        </h1>
+			        <div class="img"><img src="{IMG_PATH}/xh.jpg" alt="" /></div>
+			        <div class="time">{$v['stime']}</div>
+			        <div class="dianji"></div>
+			        <div class="dianjishu">{$v["hits"]}</div>
+			        <a href="index.php?m=index&f=show&a=show&id={$v['sid']}"><div class="huifu"></div></a>
+			    </li>
+			    {/foreach}
+			</ul>
+			</div>
+			 <div class="col-sm-4 main-right">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    浏览排行榜
+                </a>
+                {foreach $result9 as $v}
+                <a href="index.php?m=index&f=show&a=show&id={$v['sid']}" class="list-group-item">{$v["stitle"]}</a>
+               {/foreach}
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                   收藏排行榜
+                </a>
+                {foreach $result10 as $v}
+                <a href="index.php?m=index&f=show&a=show&id={$v['sid']}" class="list-group-item">{$v["stitle"]}</a>
+                {/foreach}
+            </div>
+       </div>
+	</div>
+</div> 
+ {include file="index/foot.html"}       
+        
+        
+        
+        

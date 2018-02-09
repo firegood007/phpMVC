@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+	 <link rel="stylesheet" type="text/css" href="{CSS_PATH}/reg_login.css"/>
+	 <script type="text/javascript" src="{JS_PATH}/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="login">
+			<h3>登录后台管理系统</h3>
+			<form action="index.php?m=admin&f=index&a=check" name="login" method="post" id="form">
+				用户名：<input type="text" name="aname" placeholder="请输入用户名"/><span class="usert"></span></br>
+				密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="text" name="apass" placeholder="请输入密码"/><span class="passwordt"></span></br>
+				<div class="yzm">
+				请输入验证码:<input type="text" name="code" id="imgcode" value="" />
+				<img src="index.php?m=admin&f=index&a=code" alt="" onclick='this.src="index.php?m=admin&f=index&a=code&"+Math.random()'/><span class="imgcodet"></span></br></div>
+				<input type="submit" name="submit" value="登录" class="btn"/></br>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+admin.php后台入口 index.php前台入口
+compile：smarty模板文件
+libs:1.code验证码生成类文件2.db数据库配置文件3.function请求封装。4indexmain 框架初始化类
+5.infinite无限极分类生成文件6.page,分页类7，路由类
+module：前后台模块
+static静态文件
+template模板
+upload上传组件封装

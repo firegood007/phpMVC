@@ -1,0 +1,38 @@
+{include file="index/header.html"}
+<script type="text/javascript" src="{JS_PATH}/index.js"></script> 
+<link rel="stylesheet" type="text/css" href="{CSS_PATH}/index.css"/>   
+<div class="container w">
+	<div class="row">
+		<div class="lunbo">
+		</div>
+	</div>
+</div> 
+<div class="container">
+	<div class="row">
+		    <div class="col-sm-8 main-left">
+		    	<h3 class="bt">文章类型</h3>
+		    	{foreach $result3 as $v}
+		    	{if count($v)>0}
+		     <ul>	   
+			    <li class="li">
+			        <h1>
+			            <a href="index.php?m=index&f=show&a=show&id={$v[0]['sid']}">{$v[0]["stitle"]}</a>
+			        </h1>
+			        <div class="img"><img src="{IMG_PATH}/xh.jpg" alt="" /></div>
+			        <div class="time">{$v[0]['stime']}</div>
+			        <div class="dianji"></div>
+			        <div class="dianjishu">{$v[0]["hits"]}</div>
+			        <a href="index.php?m=index&f=show&a=show&id={$v[0]['sid']}"><div class="huifu"></div></a>
+			    </li>
+			</ul>
+			  
+			   {/if}
+			    {/foreach}
+			</div>
+		</div>
+	</div>
+ {include file="index/foot.html"}       
+        
+        
+        
+        

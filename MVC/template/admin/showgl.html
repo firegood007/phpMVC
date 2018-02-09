@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理用户发布内容</title>
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}/bootstrap.min.css"/>
+		
+			<style type="text/css">
+	 		body{
+	 			background: rgba(0,0,0,.4);
+	 			color:white;
+	 			font-size: 18px;
+	 		}
+	 		th,td{
+	 			text-align: center;
+	 			font-size: 13px;
+	 		}
+	 	</style>
+	</head>
+	<body>
+		<table border="" cellspacing="0" cellpadding="0" class="table">
+			<tr>
+				<th>sid</th>
+				<th>scate(所属分类)</th>
+				<th>stitle(标题)</th>
+				<th>scon(内容)</th>
+				<th>sname(作者)</th>
+				<th>hits(点击数)</th>
+				<th>good(点赞数)</th>
+				<th>stime(发布时间)</th>
+				<th>statu(发布状态)</th>
+				<th>uid(用户ID)</th>
+			</tr>
+			{foreach $result as $v}
+			<tr>
+				<td>{$v["sid"]}</td>
+				<td>{$v["scate"]}</td>
+				<td>{$v["stitle"]}</td>
+				<td><a href="index.php?m=admin&f=category&a=info&sid={$v['sid']}">点击查看</a></td>
+				<td>{$v["sname"]}</td>
+				<td>{$v["hits"]}</td>
+				<td>{$v["good"]}</td>
+				<td>{$v["stime"]}</td>
+				<td>{if $v["statu"]==0}
+                未审核
+                {elseif $v["statu"]==1}
+                审核中
+                {elseif $v["statu"]==2}
+                审核未通过
+                {elseif $v["statu"]==3}
+                审核通过
+                {/if}
+            </td>
+				<td>{$v["uid"]}</td>
+				<td> &nbsp;<a href="index.php?m=admin&f=category&a=showdel&sid={$v['sid']}">删除</a></td>
+			</tr>
+			{/foreach}
+		</table>
+	</body>
+</html>

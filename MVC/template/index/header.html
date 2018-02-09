@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>每日一博</title>
+        <link rel="stylesheet" href="{CSS_PATH}/mui.min.css">	
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}/header.css" />
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}/foot.css" />	
+		<script type="text/javascript" src="{JS_PATH}/jquery.min.js"></script>
+		<script type="text/javascript" src="{JS_PATH}/hearder.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="row center-block">
+					<div class="navbar-header">
+						<a href="##" class="navbar-brand">每日一博</a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="index.php?m=index">博客首页</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">文章类型<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								{foreach $result111 as $q}
+								<li>
+									{if $q['pid']==0}
+									<a href="index.php?m=index&f=index&a=fl&id={$q['cid']}">{$q["cname"]} </a>
+									{/if}	   		
+  									<!--<ul class="dropdown-menu-left">
+										 {foreach $result111 as $j}
+									     {if $q['cid']==$j['pid']}
+										 <li><a href="index">{$j["cname"]}</a></li>
+										 {/if}
+									     {/foreach}
+									</ul>-->
+								</li>		
+								{/foreach}
+							</ul>
+						</li>
+						<li><form action="index.php?m=index&f=index&a=sousuo" class="navbar-form navbar-left" rol="search" method="post">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="请输入关键词" name='value'/>
+						</div>
+						<button type="submit" class="btn btn-warning">搜索</button>
+					   </form>
+					   </li>
+					   {if !empty($login)}
+					   <li><a href="index.php?m=index&f=grzx&a=bjzl">欢迎回来, {$username} <a href=""><img src="" alt="" /></a> </a></li>
+						<li>
+							<a href="index.php?m=index&f=grzx&a=grzx">个人中心</a>
+						</li>
+						<li>
+							<a href="index.php?m=index&f=art&a=showart">发表文章</a>
+						</li>
+						<li>
+							<a href="index.php?m=index&f=index&a=logout">退出登录</a>
+						</li>
+						{else}
+						<li class="denglu">
+							<a href="index.php?m=index&f=index&a=login">登录</a>
+						</li>
+						<li>
+							<a href="index.php?m=index&f=index&a=reg">注册</a>
+						</li>
+						<li>
+							<a href="index.php?m=index&f=art&a=showart">发表文章</a>
+						</li>
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>

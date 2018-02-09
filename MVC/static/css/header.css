@@ -1,0 +1,28 @@
+.nav>li{
+	margin:0 8px;
+}
+.nav{
+	height: 50px
+}
+.navbar-form{
+	padding:0 40px;
+}
+.navbar{
+	margin-bottom: 0;
+}
+input[type=text]{
+	margin-bottom: 0;
+}
+.nav>li.denglu{
+	margin-left:200px;
+}
+ul,li{
+	list-style: none;
+}
+
+ul.dropdown-menu{
+	background:white;
+}
+.menu{
+	background: none;
+}

@@ -1,0 +1,175 @@
+{include file="index/header.html"}
+<link rel="stylesheet" href="{CSS_PATH}/show.css">
+<script src="{JS_PATH}/show.js"></script>
+  <div class="container">
+      <h1 class="text-center sss">
+          {$result["stitle"]}
+          <br>
+          <span class="author">作者:
+              <span class="name author-name" attr="{$result['uid']}" sid="{$result['sid']}">
+                  {$result["sname"]}
+              </span>
+          </span>
+          <span class="time">时间:
+              <span class="date">
+                  {$result["stime"]}
+              </span>
+          </span>
+      </h1>
+      <div class="con">
+      {$result["scon"]}
+      </div>
+      <!--交互-->
+      {if $guanzhu=="true"}
+      <a href="javascript:;" class="btn btn-success guanzhu" style="display:none">关注</a>
+      <a href="javascript:;" class="btn btn-success quxiaoguanzhu">取消关注</a>
+      {elseif $guanzhu=="false"}
+      <a href="javascript:;" class="btn btn-success guanzhu">关注</a>
+      <a href="javascript:;" class="btn btn-success quxiaoguanzhu" style="display: none">取消关注</a>
+      {elseif $guanzhu=="nosession"}
+      <a href="javascript:;" class="btn btn-success guanzhu">关注</a>
+      <a href="javascript:;" class="btn btn-success quxiaoguanzhu" style="display: none">取消关注</a>
+      {elseif $guanzhu=="self"}
+      <a href="javascript:;" class="btn btn-success guanzhu">被关注数</a>
+      {/if}
+      {if $love=="true"}
+      <a href="javascript:;" class="btn btn-success loveBtn" style="display:none">收藏</a>
+      <a href="javascript:;" class="btn btn-success loveCancel" >取消收藏</a>
+      {elseif $love=="false"}
+      <a href="javascript:;" class="btn btn-success loveBtn" >收藏</a>
+      <a href="javascript:;" class="btn btn-success loveCancel" style="display:none">取消收藏</a>
+      {elseif $love=="nosession"}
+      <a href="javascript:;" class="btn btn-success loveBtn" >收藏</a>
+      <a href="javascript:;" class="btn btn-success loveCancel" style="display:none">取消收藏</a>
+      {/if}
+      <br><br>
+      <div class="submit submit1">
+
+          <textarea  class="form-control mcon" rows="3"></textarea><br>
+          <a href="javascript:;" class="btn btn-primary message-btn">留言</a>
+          <a href="javascript:;" class="btn btn-danger">取消</a>
+      </div>
+      <div class="message">
+      	
+      	
+      	<!--隐藏的Box-->
+      	<div class="liuyanbox" style="display: none">
+              <div class="liuyan">
+                  <div class="userinfo">
+                      <div class="phone">
+              {foreach $arr as $v}        	
+                 	<img src="{$v['toux']}" alt="" />
+              {/foreach}         
+                      </div>
+                      <div class="info">
+                          <div class="name">11</div>
+                          <div class="time">11</div>
+                      </div>
+                  </div>
+                  <div class="liuyancon">
+                      11
+                  </div>
+                  <a href="javascript:;" class="btn btn-default replyBtn replyBtn1" uid2="11" pid="11">回复1</a>
+              </div>
+              <div class="reply">
+
+                  {foreach $v["son"] as $v1}
+                  <div class="replylist">
+                      <div class="replycon">
+                          <span>{$v1["uname"]}</span>
+                          <div class="replyinfo">
+                              {$v1["mcon"]}
+                          </div>
+
+                      </div>
+
+                      <div class="replystate">
+                          <div class="time">{$v1["mtime"]}</div>
+                          <a href="javascript:;" class="btn btn-default replyBtn replyBtn2" uid2="{$v1['uid1']}" pid="{$v['mid']}">回复2</a>
+                      </div>
+
+                  </div>
+
+                  {/foreach}
+
+              </div>
+
+              <div class="submit submit2">
+
+                  <textarea  class="form-control" rows="3"></textarea><br>
+                  <a href="javascript:;" class="btn btn-primary replyBtn3">回复</a>
+                  <a href="javascript:;" class="btn btn-danger">取消</a>
+              </div>
+          </div>
+          
+          
+          
+          
+          
+          {if count($arr)<1}
+          <h3>没有留言</h3>
+          {else}
+          <h3>共有 <span>{count($liuyanArr)}</span>条留言</h3>
+          
+        {foreach $arr as $v}
+          <div class="liuyanbox">
+             <div class="liuyan">
+             <div class="userinfo">
+                 <div class="phone">
+                 	<img src="{$v['toux']}" alt="" />
+                 </div>
+                 <div class="info">
+                       <div class="name">{$v["username"]}</div>
+                     <div class="time">{$v["mtime"]}</div>
+                 </div>
+             </div>
+              <div class="liuyancon">
+                    {$v["mcon"]}
+              </div>
+              <a href="javascript:;" class="btn btn-default replyBtn replyBtn1" uid2="{$v['uid1']}" pid="{$v['mid']}">回复1</a>
+          </div>
+        <div class="reply" mid="{$v['mid']}">
+           {foreach $result5 as $v1}
+           {if $v1["mid"]==$v["mid"]}
+            <div class="replylist">
+              <div class="replycon">
+              	{if $v1["uid1name"]==$dangqian}
+                <span class="me">我  回复:</span>
+              	{else}
+                  <span class="me">{$v1["uid1name"]}回复:</span>
+                {/if}
+                  <span class="other">{$v1["uid2name"]}</span>
+                  <div class="replyinfo">
+                     {$v1["hcon"]}
+                  </div>
+              </div>
+                <div class="replystate">
+                    <div class="time">{$v1["mtime"]}</div>
+                    <a href="javascript:;" class="btn btn-default replyBtn replyBtn2" uid2="{$v1['uid1']}" pid="{$v['mid']}">回复2</a>
+                </div>
+            </div>
+              {/if}
+                 {/foreach}
+          </div>
+
+              <div class="submit submit2">
+
+                  <textarea  class="form-control" rows="3"></textarea><br>
+                  <a href="javascript:;" class="btn btn-primary huifu">回复</a>
+                  <a href="javascript:;" class="btn btn-danger">取消</a>
+              </div>
+          </div>
+          {/foreach}
+
+          {/if}
+
+
+      </div>
+
+  </div>
+   <div class="mask">
+
+   </div>
+   {include file="index/notice.html"}
+   <div class="notice">操作成功</div>
+ {include file="index/foot.html"}       

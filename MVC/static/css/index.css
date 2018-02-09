@@ -1,0 +1,107 @@
+.kk{
+	padding-top: 100px;
+}
+.lunbo{
+	width:100%;
+	height:300px;
+	margin-bottom: 30px;
+	background: url(../imgs/bjs.jpg) no-repeat;
+	background-size:cover;
+}
+.w{
+	width: 100%;
+}
+.bt{
+	width: 100%;
+	height:50px;
+	padding:0 0 0 15px;
+	font-weight: 600;
+	font-size:23px;
+	color: white;
+	border-radius:10px;
+	background:orange;
+	line-height:50px;
+}
+.main-left{
+	background: #F0F0EE;
+	border-radius:10px;
+}
+.li{
+	border-bottom: 1px solid #C3C3C3;
+	list-style: none;
+	position: relative;
+}
+.li .time{
+	position: absolute;
+	right: 0;
+	bottom:10px;
+	text-align: right;
+	color:#8C8C8C ;
+}
+.li a{
+	font-size:18px;
+	color:#8C8C8C;
+	text-decoration: none;
+	transition: font-size 1s linear;
+	
+}
+.li a:hover{
+	font-size: 23px;
+	color: #5E5E5E;
+}
+.dropdown-menu{
+	width:130px;
+    perspective:300px;
+	padding: 0;
+}
+.dropdown-menu li{
+	transform-style: preserve-3d;
+	transform: rotateY(90deg);
+	/*opacity: 0;*/
+	text-align: center;
+	transform-origin: center center center;
+	transition:all 1s linear;
+	background: white;
+
+}
+
+.img{
+	width:100px;
+	height: 100px;
+	overflow: hidden;
+	border-radius:10px;
+	margin-bottom: 10px;
+}
+.img>img{
+	width: 100%;
+	height: 100%;
+}
+.dianji{
+	position: absolute;
+	right:230px;
+	bottom:5px;
+	width: 30px;
+	height: 30px;
+	background: url(../imgs/点击.png) no-repeat center center;
+	background-size: contain;
+}
+.huifu{
+	position: absolute;
+	right:160px;
+	bottom:5px;
+	width: 30px;
+	height: 30px;
+	background: url(../imgs/回复.png) no-repeat center center;
+	background-size: contain;
+}
+.dianjishu{
+	position: absolute;
+	right:190px;
+	bottom:0;
+	width: 30px;
+	height: 30px;
+	color: #C7C7CC;
+}
+.main-left{
+	padding:30px 30px;
+}

@@ -1,0 +1,106 @@
+{include file="index/header.html"}
+<script type="text/javascript" src="{JS_PATH}/grzx.js"></script>
+<link rel="stylesheet" href="{CSS_PATH}/grzx.css">
+<div class="container modal-header kk">
+    <div class="row bg">
+        <div class="col-sm-8 main-left">
+            <!--头像部分-->
+            <div class="container-fluid">
+                 <div class="row text-center">
+                     <div class="col-sm-3 text-center">
+                     <div class="t">
+                     <a href="index.php?m=index&f=grzx&a=bjzl"><img src="{if $result8['toux']==''}{HTTP_URL}/upload/2.jpg{else}{$result8['toux']}{/if}" alt="" width="80"/></a>
+                     </div>
+                     </div>
+                      <div class="col-sm-2 mar">
+                          <a href="">关注数量 <span>{count($result4)}</span></a><!--查询uid2为我关注谁-->
+                      </div>
+                     <div class="col-sm-2 mar">
+                         <a href=""> 粉丝数量<span>{count($result)}</span></a><!--查询uid1知道粉丝有哪些-->
+                     </div>
+                     <div class="col-sm-2 mar">
+                         <a href="">文章数量<span>{count($result2)}</span></a>
+                     </div>
+                     <div class="col-sm-2 mar">
+                          <a href="">留言数量<span>{count($result3)}</span></a>
+                     </div>
+                 </div>
+            </div>
+            <div class="line"></div>
+            <!--菜单部分-->
+            <div class="container-fluid">
+            	
+                <div class="row">
+                    <div class="col-sm-4 cont" sname="">
+                                                           收藏的内容
+                    </div>
+                    <div class="col-sm-4 cont">   
+                                                           发表的内容
+                    </div>
+                    <div class="col-sm-4 cont">
+                                                           未审核的内容
+                    </div>
+                </div>
+            </div>
+            <!--具体的内容-->
+            <ul class="mui-table-view scnr xs">
+            	{foreach $result5 as $v}
+                <li class="mui-table-view-cell mui-media">
+                    <a href="index.php?m=index&f=show&a=show&id={$v['sid']}">
+                        <img class="mui-media-object mui-pull-left" src="{$result8['toux']}">
+                        <div class="mui-media-body">
+                            <p class="title">{$v['stitle']}</p>
+                            <div class="mui-ellipsis nr">{$v['scon']}</div>
+                        </div>
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+            <ul class="mui-table-view scnr">
+            	{foreach $result6 as $v}
+                <li class="mui-table-view-cell mui-media">
+                    <a href="index.php?m=index&f=show&a=show&id={$v['sid']}">
+                        <img class="mui-media-object mui-pull-left" src="{$result8['toux']}">
+                        <div class="mui-media-body">
+                            <p class="title">{$v['stitle']}</p>
+                            <div class="mui-ellipsis nr">{$v['scon']}</div>
+                        </div>
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+            <ul class="mui-table-view scnr">
+            	{foreach $result7 as $v}
+                <li class="mui-table-view-cell mui-media">
+                    <a href="index.php?m=index&f=show&a=show&id={$v['sid']}">
+                        <img class="mui-media-object mui-pull-left" src="{$result8['toux']}">
+                        <div class="mui-media-body">
+                            <p class="title">{$v['stitle']}</p>
+                            <div class="mui-ellipsis nr">{$v['scon']}</div>
+                        </div>
+                    </a>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+        <div class="col-sm-4 main-right">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    浏览排行榜
+                </a>
+                {foreach $result9 as $v}
+                <a href="index.php?m=index&f=show&a=show&id={$v['sid']}" class="list-group-item">{$v["stitle"]}</a>
+               {/foreach}
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                   收藏排行榜
+                </a>
+                {foreach $result10 as $v}
+                <a href="index.php?m=index&f=show&a=show&id={$v['sid']}" class="list-group-item">{$v["stitle"]}</a>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+</div>
+ {include file="index/foot.html"}       

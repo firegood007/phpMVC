@@ -1,0 +1,38 @@
+{include file="index/header.html"}
+<script type="text/javascript" src="{JS_PATH}/upload.js"></script>
+<link rel="stylesheet" type="text/css" href="{CSS_PATH}/bjzl.css"/>
+<div class="container modal-header kk">
+    <div class="row bg">
+        <div class="col-sm-8 main-left">
+            <!--头像部分-->
+            <h3 class="h3 text-center">个人资料</h3>
+            <div class="container-fluid">
+                 <div class="row">
+                 	{foreach $result1 as $v}
+                    <form action="index.php?m=index&f=grzx&a=zlsc&id={$v['id']}" class="form-group" method="post">                   	
+                    	姓名：<input type="text" name="name" value="{$v['xingming']}"/>
+                    	性别：
+                    	<label for="in">男：<input type="radio" name='sex' value='0' id="in" {if $v['sex']=="0"}checked{/if}/></label>
+                    	<label for="in1">女：<input type="radio" name='sex' value='1' id="in1" {if $v['sex']=="1"}checked{/if}/></label></br>
+                    	邮箱:<input type="email" name="email" value="{$v['email']}"/>
+                                                           个人简介:<textarea name="grjj" rows="" cols="" value="">{$v['grjj']}</textarea>                          
+                        <input type="submit" value="保存"/>
+                        <input type="reset" name="" id="" value="重置"/>
+                    </form> 
+                 </div>
+            </div>
+
+            <div class="line"></div>
+    </div> 
+    <div class="box" style="overflow: hidden;margin-top:100px;">
+         		<img src="{if {$v['toux']}!=''}{$v['toux']}{else}upload/2.jpg{/if}" alt="头像" title="用户头像" class="img1 main-right" width="200" height="200"/>
+         		 {/foreach}     
+         			<div class="son">
+         				
+         			</div>
+  	
+    </div>
+    <input type="file" name="file" id="fileimg"  multiple="multiple" class="file"/>
+</div>
+ {include file="index/foot.html"}       
+

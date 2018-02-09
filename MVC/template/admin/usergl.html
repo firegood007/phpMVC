@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理用户</title>
+		<link rel="stylesheet" type="text/css" href="{CSS_PATH}/bootstrap.min.css"/>
+		
+			<style type="text/css">
+	 		body{
+	 			background: rgba(0,0,0,.4);
+	 			color:white;
+	 			font-size: 18px;
+	 		}
+	 	</style>
+	</head>
+	<body>
+		<table border="" cellspacing="0" cellpadding="0" class="table">
+			<tr>
+				<th>id</th>
+				<th>username</th>
+				<th>userpassword</th>
+				<th>姓名</th>
+				<th>操作</th>
+			</tr>
+			{foreach $result as $v}
+			<tr>
+				<td>{$v["id"]}</td>
+				<td>{$v["username"]}</td>
+				<td>{$v["userpassword"]}</td>
+				<td>{$v["xingming"]}</td>
+				<td><a href="index.php?m=admin&f=category&a=setuser1&id={$v['id']}">编辑</a> &nbsp;<a href="index.php?m=admin&f=category&a=deluser&id={$v['id']}">删除</a></td>
+			</tr>
+			{/foreach}
+		</table>
+	</body>
+</html>

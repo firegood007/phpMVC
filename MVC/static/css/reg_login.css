@@ -1,0 +1,79 @@
+html,body{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background:url(../imgs/190020.jpg);
+}
+p{
+	margin: 0;
+	padding: 0;
+	height: 18px;
+}
+.login{
+	width: 500px;
+	height: 380px;
+	position: fixed;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin:auto;
+	text-align: center;
+	border-radius:8px;
+	background: rgba(255,255,255,.6);
+	box-shadow:10px 10px 25px #000;
+}
+form{
+	width: 100%;
+	
+}
+input{
+	/*margin-bottom:18px;*/
+	margin-top: 20px;
+}
+h3{
+	/*border-bottom: 1px solid #000;*/
+	text-align: center;
+	line-height: 50px;
+	margin: 0 0px 10px 0;
+	height:50px;
+	background: #ccc;
+	border-radius:7px;
+}
+.yzm{
+	display: block;
+	height: 60px;
+	width: 260px;
+	text-align: center;
+	left:60px;
+	position: relative;
+}
+.yzm img{
+	position: absolute;
+    top:10px;	
+}
+#imgcode{
+	width:50px;
+}
+.btn{
+	background:#B0B3B1;
+	width:100px;
+	height: 30px;
+	font-size: 16px;
+	box-shadow:3px 3px 15px #000;
+	border-radius: 9px;
+	cursor: pointer;
+	border: none;
+	color: white;
+}
+.btn:hover{
+	background:#BBBCBB;
+}
+input{
+	position: relative;
+}
+label{
+	color: #FF0000;
+	font-size: 15px;
+}

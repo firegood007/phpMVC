@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册用户</title>
+	 <link rel="stylesheet" type="text/css" href="{CSS_PATH}/reg_login.css"/>
+	 <script type="text/javascript" src="{JS_PATH}/jquery.min.js"></script>
+	 <script type="text/javascript" src="{JS_PATH}/jquery.validate.js"></script>
+	 <script>
+	 	$(function(){
+				$("#form").validate({
+				rules: {
+					aname: {
+						required: true,
+						minlength:5,
+						remote:{
+							url:"index.php?m=index&f=index&a=checkname",
+							type:"post",
+							dataType:"json",
+							data:{
+								 aname:function(){
+								 return $("input[name=aname]").val()
+								}
+							}
+						}
+					},
+					apass: {
+						required: true,
+						minlength: 5,
+					},
+					apass1: {
+						required: true,
+						minlength: 5,
+						equalTo:"#apass"
+					},
+				},
+				messages: {
+					aname: {
+						required: "请输入用户名",
+						minlength: "长度必须大于五位",
+						remote:"账户名已存在"
+					},
+					apass: {
+						required: "请输入密码",
+						minlength: "长度必须大于五位"
+					},
+					apass1: {
+						required: "请再次输入密码",
+						minlength: "长度必须大于五位",
+						equalTo:"密码输入不一致"
+					},
+					
+				}
+			});
+		})
+	 </script>
+	</head>
+	<body>
+		<div class="login">
+			<h3>新用户注册</h3>
+			<form action="index.php?m=index&f=index&a=newreg" name="login" method="post" id="form">
+				用户名：<input type="text" name="aname" placeholder="请输入用户名"/>
+				<p><label id="aname-error" class="error" for="aname"></label></p>
+				密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="text" name="apass" placeholder="请输入密码" id="apass"/>
+				<p><label id="apass-error" class="error" for="apass"></label></p>
+				再次输入密码：<input type="text" name="apass1" placeholder="请输入密码"/>
+				<p><label id="apass1-error" class="error" for="apass1"></label></p>
+				<div class="yzm">
+				请输入验证码:<input type="text" name="code" id="imgcode" value="" />
+				<img src="index.php?m=index&f=index&a=code" alt="" onclick='this.src="index.php?m=index&f=index&a=code&"+Math.random()'/><span class="imgcodet"></span></br></div>
+				<input type="submit" name="submit" value="注册" class="btn"/></br>
+			</form>
+			<a href="index.php?m=index&f=index&a=login" style="display: block;margin-top: 4px;">返回首页</a>
+		</div>
+	</body>
+</html>

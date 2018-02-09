@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>提示信息</title>
+		<script type="text/javascript" src="{JS_PATH}/jquery.min.js"></script>
+		<style type="text/css">
+		html,body,h3,h2,h4{
+				margin: 0;
+				padding: 0;
+				
+			}
+			.message{
+				width: 400px;
+				height: 300px;
+				position: fixed;
+				top:0;
+				left: 0;
+				right: 0;
+				bottom:0;
+				margin: auto;
+				border: 2px solid #C8C7CC;
+				text-align: center;
+				border-radius:25px;
+				background:#EFEFF4;
+			}
+			h3{
+				height:40px;
+				text-align: center;
+				line-height: 40px;
+				background: orange;
+				margin-bottom: 80px;
+				border-radius:20px;
+				color: white;
+				box-shadow:0px 0px 20px gainsboro inset;
+			}
+			.m{
+				width: 100%;
+				height: 40px;
+			}
+			.m span {
+				color: red;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		$(function(){
+			var t=setInterval(mm,1000)
+			var url=$("a").attr("href")
+			var num=3
+			function mm(){
+					num--
+					$(".m span").html(num)
+					if(num==0){
+					clearInterval(t)
+					location.href=url	
+					}
+			}
+		})
+	</script>
+	<body>
+		<div class="message">
+			<h3>提示信息</h3>
+			{$message}</br>
+			<div class="m"><span>3</span>秒后返回登录页.</div>
+			<h4>如果没有跳转，请<a href="{$url}">点击</a>此处</h4>
+		</div>
+	</body>
+</html>
